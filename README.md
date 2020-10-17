@@ -1,16 +1,11 @@
 # hteck_solar
 
-A new Flutter project.
+# Desenvolvedor : Luis Haraldo Zanoto de Luca
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Este aplicativo tem o objetivo de gerenciar módulos Grid Tie, trazendo controle de
+# usuários, dados estatísticos (banco de dados), relatórios e configurações do dispositivo.
+# Os módulos grid tie, são inversores de frequencia ligados em paralelo a rede elétrica.
+# Os painéis solares produzem energia em corrente contínua, esta por sua vez é convertida
+# em alternada pelo grid tie e é injetada na rede elétrica para abatimento na conta de
+# energia e/ou venda de energia excedente.
