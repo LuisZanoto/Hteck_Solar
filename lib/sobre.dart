@@ -55,7 +55,7 @@ class TelaSobre extends StatelessWidget {
         
           child: Column(children: [
                   SobreWidget("Desenvolvedor: Luis Zanoto", "Curso : ADS Noturno", "imagens/foto_luis.jpg"),
-                  SobreWidget("Hteck Solar", "Versão Beta 1.02", "imagens/casa1.jpeg"),
+                  SobreWidget("Hteck Solar - Gerenciador de Grid Tie", "Versão Beta 1.02", "imagens/casa1.jpeg"),
                   SizedBox(height: 10,), 
                   RaisedButton(
                     textColor: Colors.white,

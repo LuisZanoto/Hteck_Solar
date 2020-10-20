@@ -85,7 +85,7 @@ int loginOk = 0;
                     ),
                 child:FlatButton(
                 child: Text(
-                  "Recuperar Senha",                  
+                  "Senha Default: admin, 123",                  
                 ),
                 onPressed:(){ },
                 ),
