@@ -2,19 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:hteck_solar/configuracao.dart';
 import 'package:hteck_solar/home.dart';
-//import 'package:flutter_blue/flutter_blue.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'sobre.dart';
 import 'login.dart';
 import 'menu.dart';
 import 'grafico.dart';
 import 'cadastro.dart';
+import 'cadastroEquipamento.dart';
+import 'listaEquip.dart';
 
 
 
 
-void main(){
+void main() async {
 
-  
+  //Registrar o Firebase
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
 
   runApp(MaterialApp(    
     debugShowCheckedModeBanner: false,
@@ -30,6 +35,9 @@ void main(){
       '/tela_grafico' :(context)=> TelaGrafico(),
       '/tela_sobre' :(context)=> TelaSobre(),
       '/tela_cadastro' :(context)=> CadastroUsuarios(),
+      '/tela_cad_equip' :(context)=> CadastroEquipa(),
+      '/tela_Lista_equip' :(context)=> ListaEquipa(),
+      
                 
 
 

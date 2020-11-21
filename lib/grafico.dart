@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';  
 import 'package:charts_flutter/flutter.dart' as charts; 
 
@@ -9,6 +10,22 @@ class TelaGrafico extends StatefulWidget {
 }
 
 class _TelaGraficoState extends State<TelaGrafico> {
+
+        var data = List<Potencia>();
+
+        var db = FirebaseFirestore.instance;
+
+	@override
+	void initState(){
+		super.initState();
+		data.add(Potencia('21', 5));
+		data.add(Potencia('22', 10));
+    
+        }
+
+
+
+
  Widget chartContainer = Column(  
    mainAxisAlignment: MainAxisAlignment.center,  
    children: [Text('Chart Viewer')],  
@@ -28,7 +45,7 @@ class _TelaGraficoState extends State<TelaGrafico> {
              Text("Potencia (KWh) "),
              Container(  
                height: 250,  
-               child: chartContainer = SimpleBarChart.withSampleData(),  
+               child: chartContainer = SimpleBarChart.withSampleData(data),  
              ),  
              Padding( padding: EdgeInsets.only(top: 40), ),  
              Row(  
@@ -61,9 +78,9 @@ class SimpleBarChart extends StatelessWidget {
  SimpleBarChart(this.seriesList, {this.animate});  
    
  /// Creates a [BarChart] with sample data and no transition.  
- factory SimpleBarChart.withSampleData() {  
+ factory SimpleBarChart.withSampleData(data) {  
    return new SimpleBarChart(  
-     _createSampleData(),  
+     _createSampleData(data),  
      // Disable animations for image tests.  
      animate: false,  
    );  
@@ -78,29 +95,14 @@ class SimpleBarChart extends StatelessWidget {
  }  
    
  /// Create one series with sample hard coded data.  
- static List<charts.Series<Potencia, String>> _createSampleData() {  
-   final data = [  
-     new Potencia('21', 5),  
-     new Potencia('22', 10),  
-     new Potencia('23', 20),  
-     new Potencia('24', 40), 
-     new Potencia('25', 100),
-     new Potencia('26', 200), 
-     new Potencia('27', 300),  
-     new Potencia('28', 250),  
-     new Potencia('29', 80),  
-     new Potencia('30', 20), 
-     new Potencia('31', 10),
-     new Potencia('32', 5),
-   ];  
-   
+ static List<charts.Series<Potencia, String>> _createSampleData(data) {  
    return [  
      new charts.Series<Potencia, String>(  
        id: 'Pot',  
        colorFn: (_, __) => charts.MaterialPalette.blue.shadeDefault,  
        domainFn: (Potencia sales, _) => sales.dia,  
        measureFn: (Potencia sales, _) => sales.pot,  
-       data: data,  
+       data: data.toList(),  
      )  
    ];  
  }  

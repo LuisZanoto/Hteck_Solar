@@ -6,15 +6,20 @@ import 'bancoDados.dart';
 
 
 
-class CadastroUsuarios extends StatelessWidget {
+class CadastroUsuarios extends StatefulWidget {
   // referencia nossa classe single para gerenciar o banco de dados
+  @override
+  _CadastroUsuariosState createState() => _CadastroUsuariosState();
+}
+
+class _CadastroUsuariosState extends State<CadastroUsuarios> {
   final dbHelper = DatabaseHelper.instance;
-  // pra instanciar o snackbar
+
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
-// ignore: non_constant_identifier_names
-var txt_Email;
-// ignore: non_constant_identifier_names
+var txt_Email ;
+
+
 var txt_Senha;
 
  void _showScaffold(String message) {
@@ -23,7 +28,6 @@ var txt_Senha;
     ));
   }
 
-  // layout da homepage
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -104,7 +108,7 @@ var txt_Senha;
       ),
     );
   }
-   // métodos dos Buttons 
+
   void _inserir(var email, var senha) async {
     // linha para incluir
     Map<String, dynamic> row = {
@@ -114,6 +118,7 @@ var txt_Senha;
     final id = await dbHelper.insert(row);
     print('linha inserida id: $id');
   }
+
   void _consultar() async {
     final todasLinhas = await dbHelper.queryAllRows();  
     
@@ -126,6 +131,7 @@ var txt_Senha;
     //print (vari['senha']);
 
   }
+
   void _atualizar() async {
     // linha para atualizar
     Map<String, dynamic> row = {
@@ -136,12 +142,14 @@ var txt_Senha;
     final linhasAfetadas = await dbHelper.update(row);
     print('atualizadas $linhasAfetadas linha(s)');
   }
+
   void _deletar() async {
     // Assumindo que o numero de linhas é o id para a última linha
     final id = await dbHelper.queryRowCount();
     final linhaDeletada = await dbHelper.delete(id);
     print('Deletada(s) $linhaDeletada linha(s): linha $id');
   }
+
     void _deletar_tudo() async {
     // Assumindo que o numero de linhas é o id para a última linha
     int id = await dbHelper.queryRowCount();
@@ -152,19 +160,20 @@ var txt_Senha;
     }
   }
 
-showAlertDialog1(BuildContext context) {
+//showAlertDialog1(BuildContext context) {
 
- SnackBar(
-  content: Text('Yay! A SnackBar!'),
-  action: SnackBarAction(
-    label: 'Undo',
-    onPressed: () {
+// SnackBar(
+ /// content: Text('Yay! A SnackBar!'),
+//  action: SnackBarAction(
+ //   label: 'Undo',
+ //   onPressed: () {
       // Some code to undo the change.
-    },
-  ),
-);
+//    },
+ // ),
+//);
 
-}
+//}
+
 
 }
 

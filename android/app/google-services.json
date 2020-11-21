@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "809687638728",
+    "firebase_url": "https://hteck-solar-luis.firebaseio.com",
+    "project_id": "hteck-solar-luis",
+    "storage_bucket": "hteck-solar-luis.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:809687638728:android:3672ba517ab929e257bbfd",
+        "android_client_info": {
+          "package_name": "com.example.hteck_solar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "809687638728-sdp9nl15fg4sgr9mb028td57jrs9mg47.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnpWrXGujRUXQOIGHPMlyaCxpuJvzCCnE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "809687638728-sdp9nl15fg4sgr9mb028td57jrs9mg47.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
