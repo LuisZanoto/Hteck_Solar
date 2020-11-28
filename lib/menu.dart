@@ -1,4 +1,7 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'model/dadosPot.dart';
 
 
 class TelaMenu extends StatefulWidget {
@@ -7,6 +10,33 @@ class TelaMenu extends StatefulWidget {
 }
 
 class _TelaMenuState extends State<TelaMenu> {
+  var data = List<Dados>();
+
+  Future<List> getDados() async {
+    try {
+      final resposta =
+          await http.get("https://hteck-solar-luis.firebaseio.com/dados.json");
+      //print(resposta.body);
+      List<dynamic> lista = json.decode(resposta.body);
+      lista.forEach((e) {
+        data.add(Dados.fromJson(e));
+        print(e);
+      });
+      return data;
+    } catch (erro) {
+      print(erro.toString());
+      return null;
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getDados();
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
      return Scaffold(
@@ -39,7 +69,8 @@ class _TelaMenuState extends State<TelaMenu> {
               trailing: Icon(Icons.addchart),
               hoverColor: Colors.blue[400],
               onTap: (){
-                Navigator.pushNamed(context, '/tela_grafico');
+                //************************************  Cria grafico com os dados passados em argument
+                Navigator.pushNamed(context, '/tela_grafico', arguments: data);
               },
             ),
 
@@ -49,7 +80,7 @@ class _TelaMenuState extends State<TelaMenu> {
               title: Text('Status Atual', style: TextStyle(fontSize: 20)),
               trailing: Icon(Icons.quickreply),
               onTap: (){
-                Navigator.pushNamed(context, '/tela_home');
+                Navigator.pushNamed(context, '/tela_stat');
               },
             ), 
 

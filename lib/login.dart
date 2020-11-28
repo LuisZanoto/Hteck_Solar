@@ -5,8 +5,8 @@ import 'bancoDados.dart';
 
 class  TelaLogin extends StatelessWidget { 
 
-var txtEmail;
-var txtSenha;  
+var txtEmail ;
+var txtSenha ;  
 String email_def= "admin";
 String txt_def = "123"; 
 
@@ -111,7 +111,7 @@ int loginOk = 0;
                 onPressed: (){                           
                    
                   // se OK
-                  if(loginOk==1){
+                  if(loginOk==1){                    
                   Navigator.pushNamed(context, '/tela_menu'); 
                   }
 
